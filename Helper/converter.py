@@ -1,0 +1,5 @@
+f = open("./RawInput.txt")
+out = open("../Data/SampleInput.txt", "w+")
+x = f.read()
+x = x.replace(" ", "\t")
+print(x, file=out)
