@@ -20,8 +20,6 @@ public class Preprocess4 {
                 context.write(new Text(line[0]), new Text(line[1]));
             } else if(line.length == 3){
                 context.write(new Text(line[1]), new Text(line[0] + "\t" + line[2]));
-            } else{
-                throw new IOException("Ada file dengan format salah");
             }
         }
     }

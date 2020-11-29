@@ -35,13 +35,19 @@ public class TriangleCalculation {
         }
 
         public void reduce(Text t_key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-            ArrayList<String> list = new ArrayList<String>();
+            int totalVal = 0;
+            boolean isDollarExist = false;
             for(Text t: values){
-                list.add(t.toString());
+                String x = t.toString();
+                if(x.equals("$")){
+                    isDollarExist = true;
+                } else {
+                    totalVal += 1;
+                }
             }
-            Collections.sort(list);
-            if(list.get(0).equals("$")){
-                total += list.size()-1;
+
+            if(isDollarExist){
+                total += totalVal;
             }
         }
 
