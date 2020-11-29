@@ -19,14 +19,14 @@ $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed1/part-r-00000
 ```
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main Preprocess2.java
 jar cf Preprocess2.jar Preprocess2*.class
-$HADOOP_HOME/bin/hadoop jar Preprocess2.jar Preprocess2 /Data /Preprocessed2
+$HADOOP_HOME/bin/hadoop jar Preprocess2.jar Preprocess2 /Preprocessed1 /Preprocessed2
 ```
 Debugging:
 ```
 $HADOOP_HOME/bin/hadoop fs -rm -r -f /Preprocessed2
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main Preprocess2.java
 jar cf Preprocess2.jar Preprocess2*.class
-$HADOOP_HOME/bin/hadoop jar Preprocess2.jar Preprocess2 /Data /Preprocessed2
+$HADOOP_HOME/bin/hadoop jar Preprocess2.jar Preprocess2 /Preprocessed1 /Preprocessed2
 $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed2/part-r-00000
 ```
 
@@ -34,14 +34,14 @@ $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed2/part-r-00000
 ```
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main Preprocess3.java
 jar cf Preprocess3.jar Preprocess3*.class
-$HADOOP_HOME/bin/hadoop jar Preprocess3.jar Preprocess3 /Data /Preprocessed3
+$HADOOP_HOME/bin/hadoop jar Preprocess3.jar Preprocess3 /Preprocessed1 /Preprocessed2 /Preprocessed3
 ```
 Debugging:
 ```
 $HADOOP_HOME/bin/hadoop fs -rm -r -f /Preprocessed3
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main Preprocess3.java
 jar cf Preprocess3.jar Preprocess3*.class
-$HADOOP_HOME/bin/hadoop jar Preprocess3.jar Preprocess3 /Data /Preprocessed3
+$HADOOP_HOME/bin/hadoop jar Preprocess3.jar Preprocess3 /Preprocessed1 /Preprocessed2 /Preprocessed3
 $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed3/part-r-00000
 ```
 
@@ -49,7 +49,7 @@ $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed3/part-r-00000
 ```
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main Preprocess4.java
 jar cf Preprocess4.jar Preprocess4*.class
-$HADOOP_HOME/bin/hadoop jar Preprocess4.jar Preprocess4 /Data /Preprocessed4
+$HADOOP_HOME/bin/hadoop jar Preprocess4.jar Preprocess4 /Preprocessed2 /Preprocessed3 /Preprocessed4
 ```
 Debugging:
 ```
