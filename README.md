@@ -56,7 +56,7 @@ Debugging:
 $HADOOP_HOME/bin/hadoop fs -rm -r -f /Preprocessed4
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main Preprocess4.java
 jar cf Preprocess4.jar Preprocess4*.class
-$HADOOP_HOME/bin/hadoop jar Preprocess4.jar Preprocess4 /Data /Preprocessed4
+$HADOOP_HOME/bin/hadoop jar Preprocess4.jar Preprocess4 /Data /Preprocessed2 /Preprocessed4
 $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed4/part-r-00000
 ```
 

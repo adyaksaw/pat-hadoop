@@ -11,8 +11,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class PreprocessGraph {
-    public static class PreprocessGraphMapper extends Mapper <Object, Text, Text, Text> {
+public class Preprocess1 {
+    public static class Preprocess1Mapper extends Mapper <Object, Text, Text, Text> {
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String valueString = value.toString();
             String[] line = valueString.split("\t");
@@ -21,7 +21,7 @@ public class PreprocessGraph {
         }
     }
 
-    public static class PreprocessGraphReducer extends Reducer<Text, Text, Text, Text> {
+    public static class Preprocess1Reducer extends Reducer<Text, Text, Text, Text> {
         public void reduce(Text t_key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
             ArrayList<String> list = new ArrayList<String>();
             for(Text t: values){
@@ -41,9 +41,9 @@ public class PreprocessGraph {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "Preprocess Graph");
-        job.setJarByClass(PreprocessGraph.class);
-        job.setMapperClass(PreprocessGraphMapper.class);
-        job.setReducerClass(PreprocessGraphReducer.class);
+        job.setJarByClass(Preprocess1.class);
+        job.setMapperClass(Preprocess1Mapper.class);
+        job.setReducerClass(Preprocess1Reducer.class);
 
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(Text.class);
