@@ -39,7 +39,7 @@ public class TriangleCalculation {
             for(Text t: values){
                 list.add(t.toString());
             }
-            list = new ArrayList<>(new HashSet<>(list));
+            Collections.sort(list);
             if(list.get(0).equals("$")){
                 total += list.size()-1;
             }
