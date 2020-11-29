@@ -18,8 +18,10 @@ public class TriangleGeneration {
             String[] line = valueString.split("\t");
             if(Integer.valueOf(line[2]) < Integer.valueOf(line[3])){
                 context.write(new Text(line[0]), new Text(line[1]));
-            } else if (Integer.valueOf(line[2]).equals(Integer.valueOf(line[3])) && Integer.valueOf(line[0]).compareTo(Integer.valueOf(line[1]))){
-                context.write(new Text(line[0]), new Text(line[1]));
+            } else if (Integer.valueOf(line[2]).equals(Integer.valueOf(line[3]))) {
+                if (Integer.valueOf(line[0]).compareTo(Integer.valueOf(line[1])) > 0) {
+                    context.write(new Text(line[0]), new Text(line[1]));
+                }
             }
         }
     }
