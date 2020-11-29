@@ -49,7 +49,7 @@ public class Preprocess4 {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        Job job = Job.getInstance(conf, "Preprocess Graph");
+        Job job = Job.getInstance(conf, "Preprocess4");
         job.setJarByClass(Preprocess4.class);
         job.setMapperClass(Preprocess4Mapper.class);
         job.setReducerClass(Preprocess4Reducer.class);
