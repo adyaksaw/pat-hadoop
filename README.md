@@ -62,16 +62,16 @@ $HADOOP_HOME/bin/hadoop fs -cat /Preprocessed4/part-r-00000
 
 ## Fase 1
 ```
-$HADOOP_HOME/bin/hadoop fs -rm -r -f /Fase1Output
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main TriangleGeneration.java
 jar cf TriangleGeneration.jar TriangleGeneration*.class
+$HADOOP_HOME/bin/hadoop jar TriangleGeneration.jar TriangleGeneration /Preprocessed4 /Fase1Output
 ```
 Debugging:
 ```
 $HADOOP_HOME/bin/hadoop fs -rm -r -f /Fase1Output
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main TriangleGeneration.java
 jar cf TriangleGeneration.jar TriangleGeneration*.class
-$HADOOP_HOME/bin/hadoop jar TriangleGeneration.jar TriangleGeneration /PreprocessedData /Fase1Output
+$HADOOP_HOME/bin/hadoop jar TriangleGeneration.jar TriangleGeneration /Preprocessed4 /Fase1Output
 $HADOOP_HOME/bin/hadoop fs -cat /Fase1Output/part-r-00000
 
 ```
@@ -80,14 +80,14 @@ $HADOOP_HOME/bin/hadoop fs -cat /Fase1Output/part-r-00000
 ```
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main TriangleCalculation.java
 jar cf TriangleCalculation.jar TriangleCalculation*.class
-$HADOOP_HOME/bin/hadoop jar TriangleCalculation.jar TriangleCalculation /PreprocessedData /Fase1Output /Fase2Output
+$HADOOP_HOME/bin/hadoop jar TriangleCalculation.jar TriangleCalculation /Preprocessed4 /Fase1Output /Fase2Output
 ```
 Debugging:
 ```
 $HADOOP_HOME/bin/hadoop fs -rm -r -f /Fase2Output
 $HADOOP_HOME/bin/hadoop com.sun.tools.javac.Main TriangleCalculation.java
 jar cf TriangleCalculation.jar TriangleCalculation*.class
-$HADOOP_HOME/bin/hadoop jar TriangleCalculation.jar TriangleCalculation /PreprocessedData /Fase1Output /Fase2Output
+$HADOOP_HOME/bin/hadoop jar TriangleCalculation.jar TriangleCalculation /Preprocessed4 /Fase1Output /Fase2Output
 $HADOOP_HOME/bin/hadoop fs -cat /Fase2Output/part-r-00000
 ```
 
