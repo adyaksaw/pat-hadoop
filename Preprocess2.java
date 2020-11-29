@@ -24,10 +24,10 @@ public class Preprocess2 {
     public static class Preprocess2Reducer extends Reducer<Text, Text, Text, Text> {
         public void reduce(Text t_key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
             int degree = 0;
-            for (Text v: values) {
+            for (Text val: values) {
                 degree -= 1;
             }
-            context.write(new Text(t_key.toString()), new Text(String.valueOf(degree)));
+            context.write(t_key, new Text(String.valueOf(degree)));
         }
     }
 
@@ -37,7 +37,6 @@ public class Preprocess2 {
         job.setJarByClass(Preprocess2.class);
         job.setMapperClass(Preprocess2Mapper.class);
         job.setReducerClass(Preprocess2Reducer.class);
-        job.setCombinerClass(Preprocess2Reducer.class);
 
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(Text.class);
