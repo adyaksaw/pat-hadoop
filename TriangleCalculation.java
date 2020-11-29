@@ -16,7 +16,7 @@ public class TriangleCalculation {
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String valueString = value.toString();
             String[] line = valueString.split("\t");
-            if(line.length == 2){
+            if(line.length == 4){
                 context.write(new Text(line[0] + "\t" + line[1]), new Text("$"));
             } else if(line.length == 3){
                 context.write(new Text(line[1] + "\t" + line[2]), new Text(line[0]));

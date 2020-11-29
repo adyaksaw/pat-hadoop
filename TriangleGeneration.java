@@ -16,7 +16,7 @@ public class TriangleGeneration {
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String valueString = value.toString();
             String[] line = valueString.split("\t");
-            if(line[0].compareTo(line[1]) > 0){
+            if(Integer.valueOf(line[2]) < Integer.valueOf(line[3])){
                 context.write(new Text(line[0]), new Text(line[1]));
             }
         }
